@@ -1,0 +1,38 @@
+---
+title: "Data Exploration & Preparation -  CA1 Project"
+author: "Chia Hua Lin-2020044 & Ruei Li Jhang-2020443"
+date: "2023-11-15"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## About the Dataset
+
+The data is about Coronavirus (COVID-19) Vaccinations
+
+The website states that the vaccine dataset is based on the most current official data from international health ministries and governments. The United Nations World Population Prospects serve as the basis for population estimates used in per-capita measurements. Based on the World Bank classification, income groups are created. Source: https://ourworldindata.org/covid-vaccinations
+
+
+
+```{r message=FALSE}
+# Load required libraries
+
+```
+
+
+
+
+
+
+
+
+
+
+
