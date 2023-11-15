@@ -1,7 +1,6 @@
 ---
 title: "Data Exploration & Preparation -  CA1 Project"
 author: "Chia Hua Lin-2020044 & Ruei Li Jhang-2020443"
-date: "2023-11-15"
 output: html_document
 ---
 
@@ -30,6 +29,24 @@ library(psycho) # Standarizing
 library(caret)
 library(ggcorrplot)
 ```
+
+
+## Loading the dataset
+
+```{r}
+
+# Loading the data after downloading
+data <- read.csv("owid-covid-data.csv")
+dim(data)
+
+# Overview of the data
+head(data, 5)
+
+str(data)
+
+```
+
+
 
 
 
