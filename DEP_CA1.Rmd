@@ -23,7 +23,12 @@ The website states that the vaccine dataset is based on the most current officia
 
 ```{r message=FALSE}
 # Load required libraries
-
+library(tidyverse)
+library(lares) # Show the structure of data
+library(vtable) # Show the mean, sd, min, max
+library(psycho) # Standarizing
+library(caret)
+library(ggcorrplot)
 ```
 
 
