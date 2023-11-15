@@ -23,11 +23,14 @@ The website states that the vaccine dataset is based on the most current officia
 ```{r message=FALSE}
 # Load required libraries
 library(tidyverse)
-library(lares) # Show the structure of data
-library(vtable) # Show the mean, sd, min, max
-library(psycho) # Standarizing
-library(caret)
+library(lares) # show the structure of data
+library(vtable) # show the mean, sd, min, max
+library(caret) 
+library(psycho) # Standardizing
+library('DescTools')
 library(ggcorrplot)
+library(plotly) # Using plotly for interactive plots
+library(fastDummies) # for dummy encoding
 ```
 
 
@@ -44,6 +47,67 @@ head(data, 5)
 
 str(data)
 
+```
+
+
+
+### Checking for missing values
+```{r, message=FALSE, warning=FALSE}
+
+# Check for null values in the dataframe
+is_null <- is.na(data)
+
+# Count the number of null values in each column
+num_null_values <- colSums(is_null, na.rm = TRUE)
+
+# Print the number of null values in each column
+print(num_null_values)
+
+# show the details of the dataset
+df_str(data, return = "plot")
+```
+
+
+
+
+As we can see from the above output, there are columns with a very high number of null values. So the first thing would be to drop all the columns whose number of null values is more more than half the total number of rows, or observations.
+
+**Sometimes, R do not read empty strings, and question marks as nulls. So we first convert the Question marks and the empty strings as nulls then check the number of null values.
+
+
+
+```{r}
+
+# Replace question marks with NA in the entire dataframe
+data[data == "?"] <- NA
+
+# Replace empty strings with NA in the entire dataframe
+data[data == ""] <- NA
+
+# Check for null values in each column
+null_counts <- colSums(is.na(data))
+
+# Get columns where more than half of the values are null
+columns_to_drop <- names(null_counts[null_counts > nrow(data)/2])
+
+# Drop columns with more than half of the values being null
+data <- data[, !names(data) %in% columns_to_drop]
+
+dim(data)
+
+# Drop rows with NA values using na.omit()
+data <- na.omit(data)
+
+# Check for null values in the dataframe
+is_null <- is.na(data)
+
+# Count the number of null values in each column
+num_null_values <- colSums(is_null, na.rm = TRUE)
+
+# Print the number of null values in each column
+print(num_null_values)
+
+View(data)
 ```
 
 
