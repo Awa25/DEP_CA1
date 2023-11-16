@@ -140,8 +140,58 @@ data <- subset(data, select = -c(population, human_development_index, life_expec
 diabetes_prevalence, cardiovasc_death_rate, gdp_per_capita, aged_70_older, aged_65_older, median_age, population_density, stringency_index, new_people_vaccinated_smoothed_per_hundred, new_vaccinations_smoothed_per_million, new_deaths_smoothed_per_million, new_deaths_per_million, total_deaths_per_million, new_cases_smoothed_per_million, new_cases_per_million, total_cases_per_million))
 
 dim(data)
+
 ```
 
+
+
+### A. Identify which variables are categorical, discrete and continuous in the chosen data set and show using some visualization or plot. Explore whether there are missing values for any of the variables.
+
+```{r}
+
+# Remove all instances of 0 from all columns
+data_no_zeros <- data
+data_no_zeros[data_no_zeros == 0] <- NA
+data <- na.omit(data_no_zeros)
+
+# Check data types of variables
+str(data)
+
+```
+
+```{r message=FALSE, warning=FALSE}
+
+# show the details of the dataset
+df_str(data, return = "plot")
+
+```
+
+
+
+### Identify which variables are categorical, discrete and continuous in the chosen data set
+
+-` Categorical Variables`
+
+- iso_code
+- continent
+- location
+- date
+
+
+-` Discrete Variables`
+
+- total_cases
+- new_cases
+- total_deaths
+- new_deaths
+- new_vaccinations_smoothed 
+- new_people_vaccinated_smoothed
+
+-` Continous Variables`
+
+- new_cases_smoothed
+- new_deaths_smoothed
+- reproduction_rate
 
 
 
