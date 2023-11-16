@@ -52,6 +52,7 @@ str(data)
 
 
 ### Checking for missing values
+
 ```{r, message=FALSE, warning=FALSE}
 
 # Check for null values in the dataframe
@@ -109,6 +110,24 @@ print(num_null_values)
 
 View(data)
 ```
+
+
+
+We can now see that we do not have any null values in the columns.
+
+### Dropping all the Null Values
+
+```{r}
+
+# Drop rows with NA values using na.omit()
+data_clean <- na.omit(data)
+
+# checking the shape of the data
+cat('The shape of the data:', dim(data_clean)[1], 'rows/observations', 'and', dim(data_clean)[2], 'columns')
+
+```
+
+The Dataset is already eligible for our analysis as it means the eligibility of 7000 and 10 columns
 
 
 

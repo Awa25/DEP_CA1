@@ -831,6 +831,19 @@ print(num_null_values)</code></pre>
 ##                                 population 
 ##                                          0</code></pre>
 <pre class="r"><code>View(data)</code></pre>
+<p>We can now see that we do not have any null values in the
+columns.</p>
+</div>
+<div id="dropping-all-the-null-values" class="section level3">
+<h3>Dropping all the Null Values</h3>
+<pre class="r"><code># Drop rows with NA values using na.omit()
+data_clean &lt;- na.omit(data)
+
+# checking the shape of the data
+cat(&#39;The shape of the data:&#39;, dim(data_clean)[1], &#39;rows/observations&#39;, &#39;and&#39;, dim(data_clean)[2], &#39;columns&#39;)</code></pre>
+<pre><code>## The shape of the data: 80318 rows/observations and 35 columns</code></pre>
+<p>The Dataset is already eligible for our analysis as it means the
+eligibility of 7000 and 10 columns</p>
 </div>
 </div>
 
