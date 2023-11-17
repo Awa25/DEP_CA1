@@ -214,6 +214,47 @@ st(numerical_data)
 
 
 
+### C. Apply Min-Max Normalization, Z-score Standardization and Robust scalar on the numerical data variables.
+
+
+#### Min-Max Normalization
+
+```{r}
+
+# Apply Min-Max Normalization
+preproc <- preProcess(numerical_data, method = c("range"))
+scaled_data_minmax <- predict(preproc, numerical_data)
+head(scaled_data_minmax, 10)
+
+```
+
+
+
+#### Z-score Standardization
+
+```{r}
+
+# Z-score standardization
+z_score_standardized_data <- as.data.frame(scale(numerical_data))
+head(z_score_standardized_data, 10)
+
+```
+
+
+
+#### Robust scalar
+
+```{r}
+
+# Robust Scalar
+robust_scalar <- function(x){(x- median(x)) /(quantile(x,probs = .75)-quantile(x,probs = .25))}
+robust_scalar_data <- as.data.frame(sapply(numerical_data, robust_scalar))
+head(robust_scalar_data, 10)
+
+```
+
+
+
 
 
 
