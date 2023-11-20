@@ -373,6 +373,40 @@ ggplot(data = correlation_data, aes(x = Feature1, y = Feature2, fill = Correlati
 
 
 
+### E. Graphics and descriptive understanding should be provided along with Data Exploratory analysis (EDA). Identify subgroups of features that can explore some interesting facts.
+
+
+#### Total Deaths Per Continent
+
+```{r}
+# Group data by continent and calculate total deaths for each continent
+continent_deaths <- data %>%
+  group_by(continent) %>%
+  summarise(total_deaths = sum(total_deaths, na.rm = TRUE))
+
+# Create a bar chart of total deaths by continent
+ggplot(data = continent_deaths, aes(x = continent, y = total_deaths, fill = continent)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Deaths by Continent", x = "Continent", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) # Rotate x-axis labels for better readability
+```
+
+
+#### Total Cases Per Cotinent
+```{r}
+# Group data by continent and calculate total cases for each continent
+continent_cases <- data %>%
+  group_by(continent) %>%
+  summarise(total_cases = sum(total_cases, na.rm = TRUE))
+
+# Create a ber chart of total cases by continent
+ggplot(data = continent_cases, aes(x = continent, y = total_cases, fill = continent)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Total Cases by Continent", x = "Continent", y = "Total Cass") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) # Rotate x-axis labels for better readability
+```
 
 
 
