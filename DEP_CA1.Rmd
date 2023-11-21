@@ -410,6 +410,43 @@ ggplot(data = continent_cases, aes(x = continent, y = total_cases, fill = contin
 
 
 
+```{r}
+# Manually specify colors for the continents
+continent_colors <- c("Asia" = "red", "Africa" = "orange", "Europe" = "green",
+                      "North America" = "blue", "Oceania" = "purple", "South America" = "yellow")
+
+# Plot line chart of 'total_cases' over time per continent with manual colors and increased transparency
+ggplot(data, aes(x = date, y = total_cases, color = continent)) +
+  geom_line(alpha = 0.5) +   # Set the alpha value (transparency) to 0.5
+  scale_color_manual(values = continent_colors) +
+  labs(title = "Total Cases Over Time by Continenet", x = "Date", y = "Total Cases", color = "Continent") +
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data, aes(x = date, y = total_cases, color = continent, linetype = continent)) +
+  geom_line() +
+  scale_color_manual(values = continent_colors) +
+  scale_linetype_manual(values = c("Asia" = "solid", "Africa" = "dashed", "Europe" = "dotted", 
+                      "North America" = "dotdash", "Oceania" = "longdash", "South America" = "twodash")) +
+labs(title = "Total Cases Over Time by Continenet", x = "Date", y = "Total Cases", color = "Continent") +
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data, aes(x = date, y = total_cases, color = continent)) +
+  geom_line() +
+  scale_color_manual(values = continent_colors) +
+  facet_wrap(~continent, scales = "free_y") +
+  labs(title = "Total Cases Over Time by Continenet", x = "Date", y = "Total Cases", color = "Continent") +
+  theme_minimal() +
+  theme(axis.title.x = element_text(angle = 45, hjust = 1))
+```
+
+
+
 
 
 
