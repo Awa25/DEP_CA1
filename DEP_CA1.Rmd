@@ -442,11 +442,16 @@ ggplot(data, aes(x = date, y = total_cases, color = continent)) +
   facet_wrap(~continent, scales = "free_y") +
   labs(title = "Total Cases Over Time by Continenet", x = "Date", y = "Total Cases", color = "Continent") +
   theme_minimal() +
-  theme(axis.title.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
 
+```{r}
+plot_ly(data, x = ~date, y = ~total_cases, color = ~continent, type = "scatter", mode = "lines") %>%
+  layout(title = "Total Cases Over Time by Continent", xaxis = list(title = "Date"),
+         yaxis = list(title = "Total Cases"), legend = list(title = "Continent"))
+```
 
 
 
