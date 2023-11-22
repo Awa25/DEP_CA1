@@ -474,6 +474,40 @@ ggplot(europe_data, aes(x = location, y = total_deaths, fill = location)) +
 ```
 
 
+### Asian Countries
+```{r}
+# Filter data for Asia
+asia_data <- data %>%
+  filter(continent == "Asia")
+
+# Bar plot for Asia
+ggplot(asia_data, aes(x = location, y = total_deaths, fill = location)) +
+  geom_bar(stat = "identity") +
+  scale_fill_viridis_d() +    # Use viridis color scale
+  labs(title = "Total Deaths in Asian Countries", x = "Countries", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(legend.position = "none")   # Remove the legend
+```
+
+
+### African Coutries
+```{r}
+# Filter data for Africa
+africa_data <- data %>%
+  filter(continent == "Africa")
+
+# Bar plot for Africa
+ggplot(africa_data, aes(x = location, y = total_deaths, fill = location)) +
+  geom_bar(stat = "identity") +
+  scale_fill_viridis_d() +    # Use viridis color scale
+  labs(title = "Total Deaths in Africa Countries", x = "Countries", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  theme(legend.position = "none")   # Remove the legend
+```
+
+
 
 
 
