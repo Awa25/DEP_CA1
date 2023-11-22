@@ -501,16 +501,60 @@ africa_data <- data %>%
 ggplot(africa_data, aes(x = location, y = total_deaths, fill = location)) +
   geom_bar(stat = "identity") +
   scale_fill_viridis_d() +    # Use viridis color scale
-  labs(title = "Total Deaths in Africa Countries", x = "Countries", y = "Total Deaths") +
+  labs(title = "Total Deaths in African Countries", x = "Countries", y = "Total Deaths") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   theme(legend.position = "none")   # Remove the legend
 ```
 
 
+### Oceania Countries
+```{r}
+# Filter data for Oceania
+oceania_data <- data %>%
+  filter(continent == "Oceania")
+
+# Bar plot for Oceania
+ggplot(oceania_data, aes(x = location, y = total_deaths, fill = location)) +
+  geom_bar(stat = "identity") +
+  scale_fill_viridis_d() +    # Use viridis color scale
+  labs(title = "Total Deaths in Oceania Countries", x = "Countries", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "none")   # Remove the legend
+```
 
 
+### South America Countries
+```{r}
+# Filter data for South America
+south.america_data <- data %>%
+  filter(continent == "South America")
+
+# Bar plot for South America
+ggplot(south.america_data, aes(x = location, y = total_deaths, fill = location)) +
+  geom_bar(stat = "identity") +
+  scale_fill_viridis_d() +    # Use viridis color scale
+  labs(title = "Total Deaths in South American Countries", x = "Countries", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "none")   # Remove the legend
+```
 
 
+### North America Countries
+```{r}
+# Filter data for North America
+north.america_data <- data %>%
+  filter(continent == "North America")
 
+# Bar plot for North America
+ggplot(north.america_data, aes(x = location, y = total_deaths, fill = location)) +
+  geom_bar(stat = "identity") +
+  scale_fill_viridis_d() +    # Use viridis color scale
+  labs(title = "Total Deaths in North American Countries", x = "Countries", y = "Total Deaths") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "none")   # Remove the legend
+```
 
