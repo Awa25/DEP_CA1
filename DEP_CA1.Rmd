@@ -558,3 +558,21 @@ ggplot(north.america_data, aes(x = location, y = total_deaths, fill = location))
   theme(legend.position = "none")   # Remove the legend
 ```
 
+
+
+#### F. Apply dummy encoding to categorical variables (at least one variable used from the data set) and discuss the benefits of dummy encoding to understand the categorical data.
+```{r}
+# Selects all columns that are factors
+categorical_data <- select_if(data, is.character)
+
+# Create dummy variables of continent
+categorical_data <- dummy_cols(categorical_data, select_columns = c("continent"), remove_selected_columns = TRUE)
+
+# Drop unuseful columns
+categorical_data <- subset(categorical_data, select = -c(iso_code, location))
+head(categorical_data, 10)
+```
+
+
+
+
