@@ -456,8 +456,8 @@ plot_ly(data, x = ~date, y = ~total_cases, color = ~continent, type = "scatter",
 
 
 
-#### Total Deaths Per Countries Per Continent
-### European Countries
+### Total Deaths Per Countries Per Continent
+#### European Countries
 ```{r}
 # Filer data for Europe
 europe_data <- data %>%
@@ -474,7 +474,7 @@ ggplot(europe_data, aes(x = location, y = total_deaths, fill = location)) +
 ```
 
 
-### Asian Countries
+#### Asian Countries
 ```{r}
 # Filter data for Asia
 asia_data <- data %>%
@@ -491,7 +491,7 @@ ggplot(asia_data, aes(x = location, y = total_deaths, fill = location)) +
 ```
 
 
-### African Coutries
+#### African Coutries
 ```{r}
 # Filter data for Africa
 africa_data <- data %>%
@@ -508,7 +508,7 @@ ggplot(africa_data, aes(x = location, y = total_deaths, fill = location)) +
 ```
 
 
-### Oceania Countries
+#### Oceania Countries
 ```{r}
 # Filter data for Oceania
 oceania_data <- data %>%
@@ -525,7 +525,7 @@ ggplot(oceania_data, aes(x = location, y = total_deaths, fill = location)) +
 ```
 
 
-### South America Countries
+#### South America Countries
 ```{r}
 # Filter data for South America
 south.america_data <- data %>%
@@ -542,7 +542,7 @@ ggplot(south.america_data, aes(x = location, y = total_deaths, fill = location))
 ```
 
 
-### North America Countries
+#### North America Countries
 ```{r}
 # Filter data for North America
 north.america_data <- data %>%
@@ -560,7 +560,7 @@ ggplot(north.america_data, aes(x = location, y = total_deaths, fill = location))
 
 
 
-#### F. Apply dummy encoding to categorical variables (at least one variable used from the data set) and discuss the benefits of dummy encoding to understand the categorical data.
+### F. Apply dummy encoding to categorical variables (at least one variable used from the data set) and discuss the benefits of dummy encoding to understand the categorical data.
 ```{r}
 # Selects all columns that are factors
 categorical_data <- select_if(data, is.character)
@@ -576,7 +576,7 @@ head(categorical_data, 10)
 
 
 
-#### G Apply PCA with your chosen number of components. Write up a short profile of the first few components extracted based on your understandin.
+### G Apply PCA with your chosen number of components. Write up a short profile of the first few components extracted based on your understandin.
 ```{r}
 # With Min - Max Scaling
 # Using cbind() to combine data frames column-wise
@@ -610,4 +610,5 @@ pca_robust_scalar_df <- prcomp(robust_scalar_df, center = TRUE, scale. = TRUE)
 robust_scalar_df_pca <- as.data.frame(pca_robust_scalar_df$x[, 1:num_components])
 head(robust_scalar_df_pca, 10)
 ```
+
 
