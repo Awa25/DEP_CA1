@@ -612,3 +612,38 @@ head(robust_scalar_df_pca, 10)
 ```
 
 
+
+### Contribution Per Person
+
+#### Chia Hua Lin(Awa)
+
+```{r}
+
+# Data for tasks and days allocated of Awa
+tasks <- c('Days Taken to Code', 'Days Taken to Solve Bugs', 'Days Taken to Write Report', 'Days Taken to Proofread')
+Ruby <- c(10, 7, 8, 2)
+Awa <- c(9, 9, 8, 2)
+
+# Custom colors for each person
+custom_colors <- c("Awa" = "#66c2a5", "Ruby" = "#fc8d62")
+
+# Create a data frame
+effort_data <- data.frame(tasks, Awa, Ruby)
+
+# Reshape the data to long format for plotting
+effort_data_long <- effort_data %>%
+  gather(key = "Person", value = "Days", -tasks)
+
+# Create a grouped bar chart with custom colors for the legend
+ggplot(effort_data_long, aes(x = tasks, y = Days, fill = Person)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
+  ggtitle("Total Days Allocated to Each Task") +
+  xlab("Task") +
+  ylab("Total Days") +
+  scale_fill_manual(values = custom_colors) +  # Specify custom colors for the legend
+  theme_classic() +
+  theme(legend.position = "top")
+
+```
+
+
